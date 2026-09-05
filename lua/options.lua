@@ -7,7 +7,7 @@ local o = vim.o
 o.relativenumber = true
 
 --xd para rapido nvim
-if vim.fn.has("wsl") == 1 then
+if (vim.fn.has("wsl") == 1 or vim.fn.has("win32") == 1) and vim.fn.executable("win32yank.exe") == 1 then
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
