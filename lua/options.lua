@@ -1,12 +1,24 @@
 require "nvchad.options"
--- Forzar a VimTeX a olvidarse de Zathura en Windows
-vim.g.vimtex_view_method = 'general'
-vim.g.vimtex_view_general_viewer = [[C:\Program Files\PDF24\pdf24-Reader.exe]]
 -- add yours here!
 local o = vim.o
 o.relativenumber = true
+vim.diagnostic.config({
+  update_in_insert = true,
+  virtual_text = { prefix = "●" },
+  signs = true,
+  underline = true,
+  severity_sort = true,
+})
 
---xd para rapido nvim
+vim.diagnostic.config({
+  update_in_insert = true,
+  virtual_text = { prefix = "●" },
+  signs = true,
+  underline = true,
+  severity_sort = true,
+})
+
+--validation of win32yank in wsl and windows
 if (vim.fn.has("wsl") == 1 or vim.fn.has("win32") == 1) and vim.fn.executable("win32yank.exe") == 1 then
   vim.g.clipboard = {
     name = "win32yank-wsl",
